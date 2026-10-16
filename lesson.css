@@ -1,0 +1,171 @@
+/* Type Saif — lesson.css
+   Typing text area, per-character states, and the virtual keyboard.
+   Correct/incorrect are NEVER signaled by color alone: wrong chars are also
+   bold + underlined, the current char also has a caret/block indicator. */
+
+.lesson-wrap { display: flex; flex-direction: column; gap: 16px; }
+
+.lesson-meta { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+
+/* ---------- Typing text ---------- */
+.typing-card { padding: 28px; }
+.typing-text {
+  font-family: var(--font-mono);
+  font-size: 1.45rem;
+  line-height: 2.15;
+  letter-spacing: .015em;
+  white-space: pre-wrap;
+  word-break: break-word;
+  user-select: none;
+  -webkit-user-select: none;
+  margin: 0;
+  min-height: 6rem;
+}
+.ch { border-radius: 3px; padding: 2px 0; }
+
+/* Upcoming: dimmed */
+.ch-upcoming { color: var(--text-2); }
+
+/* Correct: full-contrast body text (distinct from dimmed upcoming) */
+.ch-correct { color: var(--text); }
+
+/* Wrong: color AND bold AND underline (never color alone) */
+.ch-wrong {
+  color: var(--red);
+  background: var(--red-soft);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+/* Current char: caret style (default) or block style, per settings.highlight */
+.typing-text.hl-caret .ch-current {
+  background: var(--blue-soft);
+  box-shadow: inset 3px 0 0 var(--blue);
+  border-radius: 2px;
+  animation: caret-pulse 1.1s ease-in-out infinite;
+}
+.typing-text.hl-block .ch-current {
+  background: var(--blue);
+  color: #fff;
+  border-radius: 4px;
+}
+@keyframes caret-pulse {
+  0%, 100% { box-shadow: inset 3px 0 0 var(--blue); }
+  50% { box-shadow: inset 3px 0 0 rgba(37, 99, 235, .25); }
+}
+
+/* Hidden input that captures real keystrokes (incl. mobile keyboards) */
+.lesson-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ---------- Lesson HUD (WPM / accuracy / timer) ---------- */
+.lesson-hud {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.hud-item {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 10px 16px;
+  min-width: 110px;
+}
+.hud-item .hud-value { font-size: 1.35rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+.hud-item .hud-label { font-size: .78rem; color: var(--text-2); font-weight: 600; text-transform: uppercase; letter-spacing: .04em; }
+
+/* ---------- Controls ---------- */
+.lesson-controls { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+
+/* ---------- Virtual keyboard ---------- */
+.vk {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px 14px 12px;
+  user-select: none;
+}
+.vk-row { display: flex; gap: 6px; justify-content: center; margin-bottom: 6px; }
+.vk-row:last-child { margin-bottom: 0; }
+.vk-key {
+  flex: 1 1 0;
+  max-width: 62px;
+  height: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-top-width: 3px;
+  border-radius: 8px;
+  background: #fff;
+  font-weight: 600;
+  font-size: .95rem;
+  color: var(--text-2);
+  box-shadow: 0 2px 0 var(--border);
+  font-family: var(--font-mono);
+  padding: 0 4px;
+  overflow: hidden;
+}
+.vk-key.wide { max-width: 110px; flex-grow: 2.2; font-family: var(--font); font-size: .78rem; }
+.vk-key.space { max-width: 340px; flex-grow: 6; }
+/* Next key to press: filled + label change handled by engine (never color alone: also bold + ring) */
+.vk-key.next {
+  background: var(--blue);
+  border-color: var(--blue-hover);
+  color: #fff;
+  font-weight: 800;
+  outline: 2px solid var(--blue);
+  outline-offset: 1px;
+}
+.vk-key.pressed {
+  transform: translateY(2px);
+  box-shadow: none;
+  background: var(--blue-soft);
+  color: var(--blue);
+}
+/* Finger guide: mirrored colors per finger pair (left pinky=1 … right pinky=8) */
+.vk-key[data-finger="1"], .vk-key[data-finger="8"] { border-top-color: var(--gold); }
+.vk-key[data-finger="2"], .vk-key[data-finger="7"] { border-top-color: var(--green); }
+.vk-key[data-finger="3"], .vk-key[data-finger="6"] { border-top-color: var(--blue); }
+.vk-key[data-finger="4"], .vk-key[data-finger="5"] { border-top-color: var(--purple); }
+.vk-key[data-finger="0"] { border-top-color: var(--border); }
+.finger-legend {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
+  font-size: .78rem;
+  color: var(--text-2);
+}
+.finger-legend i {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  margin-right: 4px;
+  vertical-align: baseline;
+}
+
+/* ---------- Lesson intro / complete panels ---------- */
+.lesson-intro p { color: var(--text-2); }
+.lesson-complete { text-align: center; padding: 12px 0; }
+.lesson-complete .big-stars { font-size: 2.2rem; color: var(--gold); letter-spacing: .2em; }
+
+@media (max-width: 640px) {
+  .typing-card { padding: 18px; }
+  .typing-text { font-size: 1.15rem; line-height: 2; }
+  .vk-key { height: 44px; font-size: .85rem; }
+  .vk { padding: 10px 8px 8px; }
+  .hud-item { min-width: 0; flex: 1 1 30%; padding: 8px 10px; }
+  .hud-item .hud-value { font-size: 1.1rem; }
+}
