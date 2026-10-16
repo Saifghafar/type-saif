@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Type Saif — learn touch typing with structured lessons, games, and progress tracking.">
+  <title>Type Saif — Learn Touch Typing</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Crect x='3' y='7' width='30' height='22' rx='6' fill='%232563EB'/%3E%3Crect x='16.8' y='14' width='2.6' height='10' rx='1.3' fill='white'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/lesson.css">
+  <link rel="stylesheet" href="css/games.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+  <noscript>
+    <div style="padding:48px;text-align:center;font-family:sans-serif">
+      <h1>Type Saif</h1>
+      <p>Type Saif needs JavaScript enabled to run.</p>
+    </div>
+  </noscript>
+
+  <div id="shell">
+    <aside id="sidebar" aria-label="Main navigation">
+      <div class="brand">
+        <svg class="logo-mark" viewBox="0 0 36 36" aria-hidden="true" focusable="false">
+          <rect x="3" y="7" width="30" height="22" rx="6" fill="#2563EB"/>
+          <rect x="6.5" y="10" width="23" height="3.5" rx="1.75" fill="#ffffff" opacity="0.28"/>
+          <rect x="16.7" y="14.5" width="2.6" height="9.5" rx="1.3" fill="#ffffff"/>
+          <rect x="10" y="26" width="16" height="0" fill="none"/>
+        </svg>
+        <span class="brand-text">Type <em>Saif</em></span>
+      </div>
+
+      <nav aria-label="Sections">
+        <ul class="nav-list">
+          <li>
+            <a class="nav-link" data-nav="dashboard" href="#/dashboard">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+              <span class="nav-label">Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" data-nav="learn" href="#/learn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              <span class="nav-label">Learn</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" data-nav="games" href="#/games">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="11" rx="5"/><path d="M7 11v4M5 13h4"/><circle cx="16" cy="11.5" r="0.6" fill="currentColor"/><circle cx="18" cy="14" r="0.6" fill="currentColor"/></svg>
+              <span class="nav-label">Typing Games</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" data-nav="practice" href="#/practice">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M6 14h.01M18 14h.01M9 14h6"/></svg>
+              <span class="nav-label">Practice</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" data-nav="progress" href="#/progress">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+              <span class="nav-label">Progress</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" data-nav="achievements" href="#/achievements">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v6a5 5 0 0 1-10 0V4z"/><path d="M7 6H4a1 1 0 0 0-1 1c0 2.2 1.8 4 4 4M17 6h3a1 1 0 0 1 1 1c0 2.2-1.8 4-4 4"/></svg>
+              <span class="nav-label">Achievements</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" data-nav="reports" href="#/reports">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              <span class="nav-label">Lesson Reports</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" data-nav="settings" href="#/settings">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+              <span class="nav-label">Settings</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <button id="collapse-toggle" type="button" aria-label="Collapse sidebar" aria-expanded="true" title="Collapse sidebar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="11 17 6 12 11 7"/><polyline points="18 17 13 12 18 7"/></svg>
+      </button>
+    </aside>
+
+    <div id="scrim" aria-hidden="true"></div>
+
+    <div id="main-col">
+      <header id="topbar">
+        <button id="hamburger" type="button" aria-label="Open navigation">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <h1 id="page-title">Dashboard</h1>
+        <div class="topbar-spacer"></div>
+        <div class="chips" aria-label="Streak and XP">
+          <span id="chip-streak" class="chip chip-streak" title="Day streak">&#128293; <b>0</b></span>
+          <span id="chip-xp" class="chip chip-xp" title="Total XP">&#9889; <b>0</b> XP</span>
+        </div>
+      </header>
+
+      <main id="app" tabindex="-1" aria-live="polite"></main>
+    </div>
+  </div>
+
+  <div id="print-root" aria-hidden="true"></div>
+
+  <!-- Core (dependency order per ARCHITECTURE.md §1) -->
+  <script src="js/00-utils.js"></script>
+  <script src="js/01-storage.js"></script>
+  <script src="js/02-data.js"></script>
+  <script src="js/03-metrics.js"></script>
+  <script src="js/04-engine.js"></script>
+  <script src="js/05-keyboard.js"></script>
+  <script src="js/06-gamify.js"></script>
+  <script src="js/07-ui.js"></script>
+  <script src="js/08-router.js"></script>
+  <script src="js/09-charts.js"></script>
+  <script src="js/10-reports.js"></script>
+  <!-- Views -->
+  <script src="views/v-dashboard.js"></script>
+  <script src="views/v-learn.js"></script>
+  <script src="views/v-lesson.js"></script>
+  <script src="views/v-practice.js"></script>
+  <script src="views/v-games.js"></script>
+  <script src="views/v-progress.js"></script>
+  <script src="views/v-achievements.js"></script>
+  <script src="views/v-reports.js"></script>
+  <script src="views/v-settings.js"></script>
+  <!-- Games -->
+  <script src="games/g-wordsprint.js"></script>
+  <script src="games/g-falling.js"></script>
+  <script src="games/g-race.js"></script>
+  <script src="games/g-accuracy.js"></script>
+  <script src="games/g-survival.js"></script>
+  <script src="games/g-daily.js"></script>
+  <!-- Boot -->
+  <script src="app.js"></script>
+</body>
+</html>
